@@ -1,5 +1,5 @@
 package debut;
 
-public class Debut {
+public class Debutute {
 
 }
