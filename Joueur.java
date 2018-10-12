@@ -1,3 +1,4 @@
+package projectClass;
 import java.util.Scanner;
 
 public class Joueur {
@@ -20,5 +21,52 @@ public class Joueur {
 			return j1;
 			
 		}
+	
+	  public void pointPendu(int nbErreur){
+		 int nbpoint=0;
+		  int pointMarque;
+		  switch (nbErreur){
+		  
+		      case 0:
+		          nbpoint += 100;
+		          pointMarque = 100;
+		          break;
+		
+		      case 1:
+		    	  nbpoint += 50;
+		    	  pointMarque = 50;
+		          break;
+		
+		      case 2:
+		    	  nbpoint += 35;
+		    	  pointMarque = 35;
+		          break;
+		
+		      case 3:
+		    	  nbpoint += 25;
+		    	  pointMarque = 25;
+		          break;
+		
+		      case 4:
+		    	  nbpoint += 15;
+		    	  pointMarque = 15;
+		          break;
+		
+		      case 5:
+		    	  nbpoint += 10;
+		    	  pointMarque = 10;
+		          break;
+		
+		      case 6:
+		    	  nbpoint += 5;
+		    	  pointMarque = 5;
+		          break;
+		
+		      default:
+		    	  nbpoint += 0;
+
+	      }
+
+	  }
 
 }
