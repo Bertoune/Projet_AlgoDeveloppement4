@@ -1,0 +1,111 @@
+package sudokutest;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Sudoku_grille extends JFrame {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;//juste pour éviter le warning
+
+public Sudoku_grille() {
+    // Create panel for Sudoku
+    JPanel board = new JPanel();
+    board.setLayout(new GridLayout(3, 3));
+    board.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    for (int ligne = 0; ligne < 3; ++ligne) {
+        for (int col = 0; col < 3; ++col) {
+            JPanel box = new JPanel(new GridLayout(3, 3));
+            box.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            for (int cell = 0; cell < 9; ++cell) {
+                box.add(new JTextField(2));
+            }
+            board.add(box);
+        }
+    }
+
+    // Create difficulty combo box
+    JComboBox<String> difficultyChoices = new JComboBox<>(new String[] { "Hard", "Medium", "Easy" });
+    difficultyChoices.setSelectedIndex(0);
+
+    // Create menu panel
+    JPanel menu = new JPanel();
+    menu.setLayout(new GridBagLayout());
+    GridBagConstraints menuConstraints = new GridBagConstraints();
+
+    menuConstraints.anchor = GridBagConstraints.WEST;
+    menuConstraints.weightx = 0.5;
+    menuConstraints.weighty = 0.5;
+    menuConstraints.gridwidth = 2;
+
+    menuConstraints.gridx = 2;
+    menuConstraints.gridy = 0;
+    menu.add(new JButton("Réinitialiser"), menuConstraints);
+
+    menuConstraints.gridx = 2;
+    menuConstraints.gridy = 1;
+    menu.add(new JButton("Aide"), menuConstraints);
+
+    menuConstraints.gridx = 2;
+    menuConstraints.gridy = 2;
+    menu.add(new JButton("Correction"), menuConstraints);
+
+    menuConstraints.gridx = 2;
+    menuConstraints.gridy = 3;
+    menu.add(new JButton("Nouvelle Grille"), menuConstraints);
+
+    menuConstraints.weighty = 1.0;
+    menuConstraints.gridx = 2;
+    menuConstraints.gridy = 4;
+    menu.add(new JLabel("Difficulté :"), menuConstraints);
+
+    menuConstraints.fill = GridBagConstraints.HORIZONTAL;
+    menuConstraints.weightx = 0.5;
+    menuConstraints.weighty = 0.5;
+    menuConstraints.gridwidth = 2;
+    menuConstraints.gridx = 0;
+    menuConstraints.gridy = 5;
+    menu.add(difficultyChoices, menuConstraints);
+
+    // Create output panel
+    JTextArea output = new JTextArea(5, 20);
+    output.setEditable(false);
+    output.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Output Area"));
+
+    // Join the 3 panels on the frame
+    Container cp = getContentPane();
+    cp.setLayout(new BorderLayout());
+
+    cp.add(board, BorderLayout.WEST);
+    cp.add(menu, BorderLayout.EAST);
+    cp.add(output, BorderLayout.SOUTH);
+}
+
+public static void main(String[] args) {
+    // Create a frame and set its properties
+    JFrame frame = new Sudoku_grille();
+    frame.setTitle("TestSudoku");
+    frame.setSize(600, 600);
+    frame.setLocationRelativeTo(null); // Center the frame
+
+    // Setup the window
+    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    frame.pack();
+    frame.setVisible(true);
+}
+
+}
