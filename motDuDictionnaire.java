@@ -52,7 +52,7 @@ public class motDuDictionnaire {
 		return false;
 	}
 	
-	public static void main(String []args) throws FileNotFoundException
+	/*** public static void main(String []args) throws FileNotFoundException
 	{
 		String mot="TAMERE";
 		if (appartientMot(mot))
@@ -61,5 +61,5 @@ public class motDuDictionnaire {
 		}
 		else System.out.println("Nope");
 	}
-	
+	**/
 }
