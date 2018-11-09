@@ -1,10 +1,18 @@
 package projectClass;
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 import java.util.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
 
 
 
-public class Pendu extends Jeux {
+public class Pendu extends Jeux {	
 	
 	private String word = "", secretWord = ""; // déclaration d'un mot et d'un mot secret
 	private char[] tabChar; // déclaration d'un tableau de char
@@ -26,6 +34,48 @@ public class Pendu extends Jeux {
 	
 	public void afficherLaRegle() {
 		System.out.println(regle);// méthode permantant l'affichage de la règle du pendu 
+	}
+	
+
+	
+	public void initmot() {// procedure pour définir le mot secret 
+		
+		int i = (int)(Math.random()*100000); // déclaration d'une variable i permettant de choisir le mot
+		while (i > 369086) {
+			i = i/2; // si il le random est supérieur au nombre de mots dans le dictionnaire on le divise par 2
+		}
+		
+		try {// bloc try / catch pour éviter le plantage du programme 
+			LineNumberReader motligne = new LineNumberReader(new FileReader(new File("C:\\Users\\PC\\git\\repository3\\projetjeux\\Dictionnaire.txt")));
+			// définition d'une variable motligne contenant la lecture du mot a la ligne indiqué 
+			int carac; 
+			this.word="";
+			this.secretWord=""; // on précise qu'on utilise les variables de classe .
+			while((carac = motligne.read()) != -1){ //tant que la la ligne lue est différente de -1
+				if(motligne.getLineNumber() == (i+1)) // Si le num ligne de la ligne est égal a i+1
+					break;// on arrete 
+				else {// sinon 
+					if(motligne.getLineNumber() == i){// si le numéro de la ligne est égal a i
+						this.word += (char)carac;		// on affecte a la variable mot ce dernier 
+				}
+			}
+		}
+			this.word = this.word.trim().toUpperCase(); // on passe une copie du mot en majuscule et on l'affecte a word 
+			
+			for(int j = 0; j < this.word.length(); j++) //pour j allant de 0 a la taille du mot -1 (< que la tailledu mot)
+			{
+				this.secretWord += (this.word.charAt(j) != '\'' && this.word.charAt(j) != '-') ? "*" : this.word.charAt(j); // on régle le motsecret en fonction du mot 
+			}
+			motligne.close(); // on ferme le flux du fichier 
+			this.nbcoup = 0;// on met le nombre de coup a 0
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "Erreur de chargement depuis le fichier de mots !", "ERREUR", JOptionPane.ERROR_MESSAGE);
+		} catch (IOException e) {
+			JOptionPane.showMessageDialog(null, "Erreur de chargement depuis le fichier de mots !", "ERREUR", JOptionPane.ERROR_MESSAGE);
+		}// en cas d'erreur on affiche un message d'erreur
+		
+		this.tabChar = this.secretWord.toCharArray(); // on règle le tableau de l'utilisateur en fonction du mot secret 
+		
 	}
 	
 	
