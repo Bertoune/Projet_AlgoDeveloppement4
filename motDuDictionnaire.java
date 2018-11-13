@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -52,14 +53,6 @@ public class motDuDictionnaire {
 		return false;
 	}
 	
-	/*** public static void main(String []args) throws FileNotFoundException
-	{
-		String mot="TAMERE";
-		if (appartientMot(mot))
-		{
-			System.out.println("Trouve");
-		}
-		else System.out.println("Nope");
-	}
-	**/
+	
+	
 }
