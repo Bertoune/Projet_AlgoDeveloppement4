@@ -1,0 +1,97 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.pageDeGarde{
+	-fx-background-color:#0081A1;	
+ 	-fx-background-image: url("/project/image/Fond.png");
+	-fx-background-position:center center;
+	-fx-background-repeat:no-repeat no-repeat;
+	-fx-background-size: cover;
+}
+
+.sign, .log, .h, .sudoku,.lettre, .meles, .motus, .pendu{
+	-fx-background-color:white;
+	-fx-text-fill:black;
+	-fx-font-size:20;
+	-fx-alignment:center;
+	-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 ); 
+    -fx-effect: innershadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,0 );
+}
+
+.sign { -fx-padding: 20 135 20 135; }
+.log { -fx-padding: 20 130 20 130; }
+.h { -fx-padding: 20 300 20 300; }
+
+.sudoku{ -fx-padding: 20 350 20 350; }
+.lettre{ -fx-padding: 20 322 20 322; }
+.meles{ -fx-padding: 20 332 20 332; }
+.motus{ -fx-padding: 20 355 20 355; }
+.pendu{ -fx-padding: 20 355 20 355; }
+
+.sign:hover, .log:hover, .h:hover, .sudoku:hover, .lettre:hover, .meles:hover, .motus:hover, .pendu:hover{
+	-fx-background-color:#0081A1;
+	-fx-text-fill:white;
+}
+
+.names{
+	-fx-padding:20 20;
+	-fx-text-fill:white;
+	-fx-font-size:15;
+	-fx-stroke-width:2.0;
+}
+
+.presentation{
+	-fx-padding:280 190;
+	-fx-text-fill:white;
+	-fx-text-alignment:center;
+	-fx-font-size:25;
+}
+
+
+.case{
+	-fx-padding: 18 22 18 22;
+	-fx-text-alignment: center;
+	-fx-background-color:white;
+	-fx-border-width:2;
+	-fx-border-color:#696969;
+	-fx-font-size:20;
+}
+.case1{
+	-fx-text-alignment: center;
+	-fx-background-color:white;
+	-fx-font-size:20;
+	-fx-border-width:2 4 4 2; 
+	-fx-border-color:#696969 black black #696969;
+	-fx-padding:12 22 21 20;
+}
+.case2{
+	-fx-text-alignment: center;
+	-fx-background-color:white;
+	-fx-font-size:20;
+	-fx-border-width:2 4 2 2; 
+	-fx-border-color:#696969 black #696969 #696969;
+	-fx-padding:18 22 18 20;
+}
+.case3{
+	-fx-text-alignment: center;
+	-fx-background-color:white;
+	-fx-font-size:20;
+	-fx-border-width:2 2 4 2; 
+	-fx-border-color:#696969 #696969 black #696969;
+	-fx-padding:12 22 21 22;
+}
+.case:hover, .case1:hover, .case2:hover, .case3:hover {
+	-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 ); 
+    -fx-effect: innershadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,0 );
+}
+
+/*
+.case:pressed{
+	-fx-background-color:blue;
+	-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 10,0,0,1 ); 
+    -fx-effect: innershadow( gaussian , rgba(0,0,0,0.7) , 20,0,0,0 );
+}*/
+
+/*-fx-border-width:10;
+	-fx-border-color:green;*/
+/*-fx-background-radius: 30;*/
+/* .button:pressed */
