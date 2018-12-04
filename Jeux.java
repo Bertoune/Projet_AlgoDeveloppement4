@@ -1,24 +1,28 @@
-package packageClasse;
+package model.projet;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Collections;
+
 public class Jeux /*implements Comparator<Joueur>*/{
 	protected String regle;
 	protected GenererGrille grille;
-	List <Joueur> lesJoueur=new ArrayList<Joueur>();
+	List <Joueur> lesJoueurs;
 	
 	enum TypeJeux{PENDU,MOTUS,SUDOKU,MOT_MELEE};
 	public Jeux(int ligne, int colonne,String _regle) {
+		
 		//this.joueur=new Joueur(_nom);
+		this.regle=_regle;
+		this.lesJoueurs=new ArrayList<Joueur>();
 		this.grille=new GenererGrille(colonne,ligne);
 		}
-	Iterator<Joueur> itJoueur =lesJoueur.iterator();
 	public boolean ajouterJoueur(Joueur joueur)
 	{
-		for(Joueur j:lesJoueur)
+		for(Joueur j:lesJoueurs)
 			{
 				if(j.equals(joueur)==true) 
 				{
@@ -28,62 +32,44 @@ public class Jeux /*implements Comparator<Joueur>*/{
 				}
 				
 			}
-			lesJoueur.add(joueur);
+			lesJoueurs.add(joueur);
 			System.out.println("Ajout avec succès");
 			return true;
 			
 		}
+	void afficherJoueur()
+	{
 		
-	
-				
-		void afficherJoueur()
+		for(Joueur j:lesJoueurs)
 		{
-			
-			for(Joueur j:lesJoueur)
-			{
-				System.out.println(j.toString());
-			}
-			
+			System.out.println(j.toString());
 		}
-	
-		public List<Joueur> classerLesJoueur()
-		{
-						return lesJoueur;
-			
-		}
-		public void afficherGrilleJeux()
-		{
-			grille.afficheGrille();
-		}
-		public boolean jouer()
-		{
-			return true;
-		}
-		public boolean annulerJeux(Grille g)
-		{
-			return true;
-		}
-		public boolean poseJeux(Jeux monjeux, Joueur joueur) 
-		{
-			return true;
-		}
-		public boolean reprendreJeux(Jeux monJeux, Joueur joueur)
-		{
-			return true;
-		}
-
-		public static Comparator<Joueur> ComparatorPoints= new Comparator<Joueur>() {
-
+		
+	}
+	public boolean poseJeux(Jeux monjeux, Joueur joueur) 
+	{
+		return true;
+	}
+	public boolean reprendreJeux(Jeux monJeux, Joueur joueur)
+	{
+		return true;
+	}
+	/*public static Comparator<Joueur> joueurComparator=new Comparator<Joueur>(){
 			@Override
-			public int compare(Joueur o1, Joueur o2) {
+			public int compare(Joueur j1, Joueur j2) {
 				// TODO Auto-generated method stub
-				o1.compareTo(o2);
-				return 0;
-			}};
-		void classerJoueur() {
-			
-			Collections.sort(lesJoueur, ComparatorPoints);
-		}
-			
+				return (int)j1.compareTo(j2);
+		} 
 		
+			};*/
+	//code permet de classer les classement des joueur
+	
+	public List<Joueur> classementJoueur()
+	{
+		Iterator<Joueur> iter=lesJoueurs.iterator();
+		Collections.sort(lesJoueurs);
+		Collections.reverse(lesJoueurs);
+		return lesJoueurs;
+		
+	}
 }
